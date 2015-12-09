@@ -1,3 +1,7 @@
+.. image:: https://travis-ci.org/LucasRMehl/paramiko.svg?branch=readme_updates
+   :target: https://travis-ci.org/LucasRMehl/paramiko
+.. image:: https://coveralls.io/repos/LucasRMehl/paramiko/badge.png
+   :target: https://coveralls.io/r/LucasRMehl/paramiko
 
 ========
 paramiko
@@ -14,20 +18,21 @@ paramiko
 What
 ----
 
-"paramiko" is a combination of the esperanto words for "paranoid" and
-"friend".  it's a module for python 2.6+ that implements the SSH2 protocol
+"Paramiko" is a combination of the esperanto words for "paranoid" and
+"friend".  It's a module for python 2.6+ that implements the SSH2 protocol
 for secure (encrypted and authenticated) connections to remote machines.
 unlike SSL (aka TLS), SSH2 protocol does not require hierarchical
-certificates signed by a powerful central authority. you may know SSH2 as
+certificates signed by a powerful central authority. You may know SSH2 as
 the protocol that replaced telnet and rsh for secure access to remote
 shells, but the protocol also includes the ability to open arbitrary
 channels to remote services across the encrypted tunnel (this is how sftp
 works, for example).
 
-it is written entirely in python (no C or platform-dependent code) and is
-released under the GNU LGPL (lesser GPL). 
+It is written entirely in python (no C or platform-dependent code) and is
+released under the GNU LGPL (`Lesser GPL
+<https://www.gnu.org/copyleft/lesser.html>`_).
 
-the package and its API is fairly well documented in the "doc/" folder
+The package and its API is fairly well documented in the "doc/" folder
 that should have come with this archive.
 
 
@@ -48,21 +53,21 @@ dependencies with this command (as root)::
 Portability
 -----------
 
-i code and test this library on Linux and MacOS X. for that reason, i'm
-pretty sure that it works for all posix platforms, including MacOS. it
-should also work on Windows, though i don't test it as frequently there.
-if you run into Windows problems, send me a patch: portability is important
+I code and test this library on Linux and MacOS X. for that reason, I'm
+pretty sure that it works for all posix platforms, including MacOS. It
+should also work on Windows, though I don't test it as frequently there.
+If you run into Windows problems, send me a patch: portability is important
 to me.
 
-some python distributions don't include the utf-8 string encodings, for
-reasons of space (misdirected as that is). if your distribution is
+Some python distributions don't include the UTF-8 string encodings, for
+reasons of space (misdirected as that is). If your distribution is
 missing encodings, you'll see an error like this::
 
     LookupError: no codec search functions registered: can't find encoding
 
-this means you need to copy string encodings over from a working system.
+This means you need to copy string encodings over from a working system
 (it probably only happens on embedded systems, not normal python
-installs.) Valeriy Pogrebitskiy says the best place to look is
+installs). Valeriy Pogrebitskiy says the best place to look is
 ``.../lib/python*/encodings/__init__.py``.
 
 
@@ -83,7 +88,7 @@ our main website, http://paramiko.org .
 Demo
 ----
 
-several demo scripts come with paramiko to demonstrate how to use it.
+Several demo scripts come with paramiko to demonstrate how to use it.
 probably the simplest demo of all is this::
 
     import paramiko, base64
@@ -97,11 +102,11 @@ probably the simplest demo of all is this::
     client.close()
 
 ...which prints out the results of executing ``ls`` on a remote server.
-(the host key 'AAA...' should of course be replaced by the actual base64
-encoding of the host key.  if you skip host key verification, the
-connection is not secure!)
+The host key 'AAA...' should of course be replaced by the actual base64
+encoding of the host key.  If you skip host key verification, the
+connection is not secure!
 
-the following example scripts (in demos/) get progressively more detailed:
+The following example scripts (in demos/) get progressively more detailed:
 
 :demo_simple.py:
     calls invoke_shell() and emulates a terminal/tty through which you can
@@ -132,11 +137,12 @@ the following example scripts (in demos/) get progressively more detailed:
 Use
 ---
 
-the demo scripts are probably the best example of how to use this package.
-there is also a lot of documentation, generated with Sphinx autodoc, in the doc/ folder.
+The demo scripts are probably the best example of how to use this package.
+There is also a lot of documentation, generated with Sphinx autodoc, in the
+doc/ folder.
 
-there are also unit tests here::
+There are also unit tests here::
 
     $ python ./test.py
 
-which will verify that most of the core components are working correctly.
+Which will verify that most of the core components are working correctly.
