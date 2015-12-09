@@ -51,7 +51,7 @@ Requirements
 Installation
 ------------
 
-For most users, the recommended method to install is via pip:
+For most users, the recommended method to install is via pip::
 
     pip install paramiko
 
