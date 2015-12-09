@@ -1,13 +1,13 @@
+========
+Paramiko
+========
+
 .. Continuous integration and code coverage badges
 
 .. image:: https://travis-ci.org/paramiko/paramiko.svg?branch=master
     :target: https://travis-ci.org/paramiko/paramiko
 .. image:: https://coveralls.io/repos/paramiko/paramiko/badge.svg?branch=master&service=github
     :target: https://coveralls.io/github/paramiko/paramiko?branch=master
-
-========
-paramiko
-========
 
 :Paramiko:    Python SSH module
 :Copyright:   Copyright (c) 2003-2009  Robey Pointer <robeypointer@gmail.com>
@@ -22,16 +22,16 @@ What
 ----
 
 "Paramiko" is a combination of the esperanto words for "paranoid" and
-"friend".  It's a module for python 2.6+ that implements the SSH2 protocol
+"friend".  It's a module for Python 2.6+ that implements the SSH2 protocol
 for secure (encrypted and authenticated) connections to remote machines.
-unlike SSL (aka TLS), SSH2 protocol does not require hierarchical
-certificates signed by a powerful central authority. You may know SSH2 as
-the protocol that replaced telnet and rsh for secure access to remote
+Unlike SSL (aka TLS), SSH2 protocol does not require hierarchical
+certificates signed by a powerful central authority.  You may know SSH2 as
+the protocol that replaced Telnet and rsh for secure access to remote
 shells, but the protocol also includes the ability to open arbitrary
-channels to remote services across the encrypted tunnel (this is how sftp
+channels to remote services across the encrypted tunnel (this is how SFTP
 works, for example).
 
-It is written entirely in python (no C or platform-dependent code) and is
+It is written entirely in Python (no C or platform-dependent code) and is
 released under the GNU Lesser General Public License (`LGPL
 <https://www.gnu.org/copyleft/lesser.html>`_).
 
@@ -56,27 +56,30 @@ For most users, the recommended method to install is via pip::
     pip install paramiko
 
 For more detailed instructions, see the `Installing
-<http://www.paramiko.org/installing.html>`_ page on the main paramiko website.
+<http://www.paramiko.org/installing.html>`_ page on the main Paramiko website.
 
 
-Portability
------------
+Portability Issues
+------------------
 
-I code and test this library on Linux and MacOS X. for that reason, I'm
-pretty sure that it works for all posix platforms, including MacOS. It
-should also work on Windows, though I don't test it as frequently there.
-If you run into Windows problems, send me a patch: portability is important
-to me.
+Paramiko primarily supports POSIX platforms with standard OpenSSH
+implementations, and is most frequently tested on Linux and OS X.  Windows is
+supported as well, though it may not be as straightforward.
 
-Some python distributions don't include the UTF-8 string encodings, for
-reasons of space (misdirected as that is). If your distribution is
+Some Windows users whose Python is 64-bit have found that the PyCrypto
+dependency ``winrandom`` may not install properly, leading to ``ImportError``s.
+In this scenario, you may need to compile ``winrandom`` yourself.  See
+`Fabric #194 <https://github.com/fabric/fabric/issues/194>`_ for info.
+
+Some Python distributions don't include the UTF-8 string encodings, for
+reasons of space (misguided as that is).  If your distribution is
 missing encodings, you'll see an error like this::
 
     LookupError: no codec search functions registered: can't find encoding
 
 This means you need to copy string encodings over from a working system
-(it probably only happens on embedded systems, not normal python
-installs). Valeriy Pogrebitskiy says the best place to look is
+(it probably only happens on embedded systems, not normal Python
+installs).  Valeriy Pogrebitskiy says the best place to look is
 ``.../lib/python*/encodings/__init__.py``.
 
 
@@ -95,14 +98,14 @@ Kerberos Support
 Paramiko ships with optional Kerberos/GSSAPI support; for info on the extra
 dependencies for this, see the `GSS-API section
 <http://www.paramiko.org/installing.html#gssapi>`_
-on the main paramiko website.
+on the main Paramiko website.
 
 
 Demo
 ----
 
-Several demo scripts come with paramiko to demonstrate how to use it.
-probably the simplest demo of all is this::
+Several demo scripts come with Paramiko to demonstrate how to use it.
+Probably the simplest demo of all is this::
 
     import paramiko, base64
     key = paramiko.RSAKey(data=base64.decodestring('AAA...'))
@@ -114,38 +117,36 @@ probably the simplest demo of all is this::
         print '... ' + line.strip('\n')
     client.close()
 
-...which prints out the results of executing ``ls`` on a remote server.
-The host key 'AAA...' should of course be replaced by the actual base64
-encoding of the host key.  If you skip host key verification, the
-connection is not secure!
+This prints out the results of executing ``ls`` on a remote server. The host
+key 'AAA...' should of course be replaced by the actual base64 encoding of the
+host key.  If you skip host key verification, the connection is not secure!
 
 The following example scripts (in demos/) get progressively more detailed:
 
 :demo_simple.py:
-    calls invoke_shell() and emulates a terminal/tty through which you can
-    execute commands interactively on a remote server.  think of it as a
-    poor man's ssh command-line client.
+    Calls invoke_shell() and emulates a terminal/TTY through which you can
+    execute commands interactively on a remote server.  Think of it as a
+    poor man's SSH command-line client.
 
 :demo.py:
-    same as demo_simple.py, but allows you to authenticiate using a
-    private key, attempts to use an SSH-agent if present, and uses the long
-    form of some of the API calls.
+    Same as demo_simple.py, but allows you to authenticate using a private
+    key, attempts to use an SSH agent if present, and uses the long form of
+    some of the API calls.
 
 :forward.py:
-    command-line script to set up port-forwarding across an ssh transport.
-    (requires python 2.3.)
+    Command-line script to set up port-forwarding across an SSH transport.
 
 :demo_sftp.py:
-    opens an sftp session and does a few simple file operations.
+    Opens an SFTP session and does a few simple file operations.
 
 :demo_server.py:
-    an ssh server that listens on port 2200 and accepts a login for
-    'robey' (password 'foo'), and pretends to be a BBS.  meant to be a
-    very simple demo of writing an ssh server.
+    An SSH server that listens on port 2200 and accepts a login for
+    'robey' (password 'foo'), and pretends to be a BBS.  Meant to be a
+    very simple demo of writing an SSH server.
 
 :demo_keygen.py:
-    an key generator similar to openssh ssh-keygen(1) program with
-    paramiko keys generation and progress functions.
+    A key generator similar to OpenSSH ``ssh-keygen(1)`` program with
+    Paramiko keys generation and progress functions.
 
 Use
 ---
