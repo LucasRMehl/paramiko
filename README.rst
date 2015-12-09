@@ -42,10 +42,10 @@ that should have come with this archive.
 Requirements
 ------------
 
-  - `Python <http://www.python.org/>`_ 2.6, 2.7, or 3.3+ (3.2 should also work,
+- `Python <http://www.python.org/>`_ 2.6, 2.7, or 3.3+ (3.2 should also work,
   but it is not recommended)
-  - `pycrypto <https://www.dlitz.net/software/pycrypto/>`_ 2.1+
-  - `ecdsa <https://pypi.python.org/pypi/ecdsa>`_ 0.9+
+- `pycrypto <https://www.dlitz.net/software/pycrypto/>`_ 2.1+
+- `ecdsa <https://pypi.python.org/pypi/ecdsa>`_ 0.9+
 
 
 Installation
