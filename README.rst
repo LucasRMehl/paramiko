@@ -84,7 +84,7 @@ Bugs & Support
 --------------
 
 :Bug Reports:  `Github <https://github.com/paramiko/paramiko/issues/>`_
-:Mailing List: paramiko@librelist.com (see the `LibreList website
+:Mailing List: ``paramiko@librelist.com`` (see the `LibreList website
                <http://librelist.com/>`_ for usage details).
 :IRC:          ``#paramiko`` on Freenode
 
